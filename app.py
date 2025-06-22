@@ -1,4 +1,3 @@
-# 📦 Streamlit App to Generate MNIST Digits (save as app.py)
 
 import streamlit as st
 import torch
@@ -9,9 +8,6 @@ from PIL import Image
 import io
 import numpy as np
 
-# --------------------
-# Generator Definition (same as training)
-# --------------------
 class Generator(nn.Module):
     def __init__(self, latent_dim, num_classes):
         super().__init__()
@@ -33,9 +29,7 @@ class Generator(nn.Module):
         input = noise * self.label_embed(labels)
         return self.model(input).view(-1, 1, 28, 28)
 
-# --------------------
-# Load Model
-# --------------------
+
 @st.cache_resource
 def load_generator():
     model = Generator(latent_dim=100, num_classes=10)
@@ -43,9 +37,7 @@ def load_generator():
     model.eval()
     return model
 
-# --------------------
-# Generate Images
-# --------------------
+
 def generate_images(generator, digit, num_images=5):
     z = torch.randn(num_images, 100)
     labels = torch.full((num_images,), digit, dtype=torch.long)
