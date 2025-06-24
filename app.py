@@ -62,6 +62,6 @@ if st.button("Generate Images"):
 
     # Convert grid to image for display
     np_img = grid.permute(1, 2, 0).numpy()
-    st.image(np_img, caption=f"Generated digit: {selected_digit}", use_column_width=False)
+    st.image(np_img, caption=f"Generated digit: {selected_digit}", use_container_width=False)
 else:
     st.info("👆 Select a digit and click the button above to generate images.")
