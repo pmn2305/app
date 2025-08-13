@@ -45,9 +45,9 @@ def generate_images(generator, digit, num_images=5):
         images = generator(z, labels)
     return images
 
-# --------------------
+
 # Streamlit UI
-# --------------------
+
 
 st.set_page_config(page_title="MNIST Digit Generator", layout="centered")
 st.title("🧠 MNIST Digit Generator")
@@ -65,3 +65,4 @@ if st.button("Generate Images"):
     st.image(np_img, caption=f"Generated digit: {selected_digit}", use_container_width=False)
 else:
     st.info("👆 Select a digit and click the button above to generate images.")
+
